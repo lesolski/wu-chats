@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<title>Student Helper</title>
+		<script src="https://kit.fontawesome.com/610ae23461.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class='navbar'>
+		{% if current_user.is_authenticated %}
+			<ul>
+				<li><a href="{{ url_for('users.profile', username=current_user.username) }}">Profile</a></li>
+				<li><a href="{{ url_for('groups.search') }}">All Chats</a></li>
+				<li><a href="{{ url_for('groups.add') }}">Add Chat</a></li>
+				<li><a href="{{ url_for('main.news') }}">News</a></li>
+				<li><a href="{{ url_for('main.faq') }}">FAQs & Links</a></li>
+				<li style="float:right">
+					<a href="{{ url_for('users.log_out') }}">Logout   <i class="fas fa-sign-out-alt whiteicon fa-1x"></i></a>
+				</li>
+			</ul>
+		{% else %}
+			<ul>
+				<li><a href="{{ url_for('main.home') }}">Home</a></li>
+				<li><a href="{{ url_for('groups.search') }}">All Chats</a></li>
+				<li><a href="{{ url_for('groups.add') }}">Add Chat</a></li>
+				<li><a href="{{ url_for('main.news') }}">News</a></li>
+				<li><a href="{{ url_for('main.faq') }}">FAQs & Links</a></li>
+				<li style="float:right"><a href="{{ url_for('users.login') }}">Login</a></li>
+				<li style="float:right"><a href="{{ url_for('users.register') }}">Register</a></li>
+			</ul>
+		{% endif %}
+
+		{% with messages = get_flashed_messages(with_categories=True) %}
+			{% if messages %}
+				{% for category, message in messages %}
+				<div class="{{ category }}">
+					{{ message|safe }}
+				</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+		{% block errors %} {% endblock %}
+		</div>
+
+		<main>
+		{% block content %} {% endblock %}
+		</main>
+
+		<div class="footer">
+			<ul>
+				<li><a href="https://www.github.com/lesolski/wu-chats" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
+				<li style="float:left"><a href="/home">Need Help?</a></li>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

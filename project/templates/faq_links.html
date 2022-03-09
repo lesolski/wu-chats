@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    
+    .faq_question {
+        margin: 0px 0px 30px 0px;
+        padding: 0px 0px 5px 0px;
+        display: inline-block;
+        cursor: pointer;
+        font-size:30px;
+    }
+    
+
+    .faq_answer {
+        font-size:15px;
+    }
+
+    .faq_answer_container {
+        display: none;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+
+
+    .wrapper {
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        display: flex;
+    }
+
+    #div1 {
+        margin-top: 30px;
+        display: inline-block;
+        width: 50%;
+    }
+
+    h2 a {
+        color: black;
+        font-weight:normal;
+    }
+
+    h2 a:hover {
+        color: #0088CC;
+        font-weight:normal;
+    }
+
+    h2 { 
+        margin: 30px;
+        font-size: 30px;
+    }
+
+    #div2 {
+        margin-top:30px;
+        display: inline-block;
+        width: 50%;
+        font-size: 20px;
+    }
+
+</style>
+
+<!-- JavaScript - JQuery for dropdown Q&A -->
+<script>
+    $(document).ready(function() {
+
+        $('.faq_question').click(function() {
+
+            if ($(this).parent().is('.open')) {
+                $(this).closest('.faq').find('.faq_answer_container').slideUp();
+                $(this).closest('.faq').removeClass('open');
+            } else {
+                $('.faq_answer_container').slideUp();
+                $('.faq').removeClass('open');
+                $(this).closest('.faq').find('.faq_answer_container').slideDown();
+                $(this).closest('.faq').addClass('open');
+            }
+
+        });
+    });
+</script>
+
+<div class="wrapper">
+
+    <div id='div1'>
+
+        <h2 style="margin-top:30px; color:rgb(0,136,204); font-size: 40px;">FAQs</h2>
+
+        <div class="faq_container">
+            <div class="faq">
+                <div class="faq_question open">1. When will the safety measures be cancelled?</div>
+                <div class="faq_answer_container" style="display: block;">
+                    <div class="faq_answer">
+                        All the changes in safety measures depend on the number of cases, so if it goes down, the restrictions are likely to be loosened. However, that all depends on decisions of the authorities. Here is a link to official webpage where you can find all current updates on the situation in Vienna and Austria. <a href="https://www.austria.info/en/service-and-facts/coronavirus-information" target="_blank">Latest Information on the Coronavirus Situation in Austria</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq_question">2. Where to go with all these restrictions?</div>
+                <div class="faq_answer_container">
+                    <div class="faq_answer">
+                        For today, parks are open for individuals, households and groups of no more than six members, cafes are working in takeaway format and museums are open with some quantity restrictions. Shops are working but again with quantity restrictions and shortened working hours. Other public places are closed until further instructions. Public events are prohibited. For sure also check the official websites of the place you want to go to. For all general updates visit the link below. <a href="https://www.austria.info/en/service-and-facts/coronavirus-information" target="_blank">Latest Information on the Coronavirus Situation in Austria</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq_question">3. I feel bad. What should I do?</div>
+                <div class="faq_answer_container">
+                    <div class="faq_answer">Firstly, don’t panic. Then, try to estimate your current state. If you experience flu-like symptoms, such as a fever, coughing, a sore throat, or a loss of your sense of taste, go home immediately, call the Viennese Health Hotline at <b>1450</b> and follow their instructions. Do not leave your apartment unless you are told to do so by the Health Hotline in order to get tested. 
+                        <br>
+                        <br>
+                        If you are suspected to have contracted COVID-19 a test will be organized for you (free of charge) or you may go to one of the city's testing checkpoints. See “Getting tested if you have symptoms” <a href="coronavirus.wien.gv.at/site/faq-english">here.</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq_question">4. I tested positive for COVID-19. What should I do?</div>
+                <div class="faq_answer_container">
+                    <div class="faq_anser">
+                        If you tested positive for COVID-19 in Austria the authorities will place you in home quarantine and trace your recent contacts to prevent further spread.  
+                        <br>
+                        <br>
+                        If you have been in contact with anyone who tested positive, you may also have to get tested and be placed in quarantine. You are not allowed to leave quarantine early even with a negative COVID-19 test result. 
+                        <br>
+                        <br>
+                        Take any restrictions placed on you seriously, even if you have mild or no symptoms! The authorities will check on you regularly and non-compliance could result in a fine or even criminal charges. 
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq_question">5. How to organize my distance learning?</div>
+                <div class="faq_answer_container">
+                    <div class="faq_answer" style="margin-bottom: 30px;">
+                        The basic information on the online-learning process is published on WU website <a href="https://www.wu.ac.at/en/students/tools-services" target="_blank">here</a>. You can also find some useful information about WU’s online-resources on the page for exchange students <a href="https://www.wu.ac.at/studium/incoming-students/exchange-semester/academics/tools-online-services" target="_blank"> here.</a>  
+                        <br>
+                        <br>
+                        If you are struggling with some technical problems setting up your working environment use the WU IT-Service hotline (+43 1 313 36 – 3000) or contact them by email <a href="mailto:hotline@wu.ac.at">hotline@wu.ac.at</a> or visit the webpage <a href="https://www.wu.ac.at/en/it" target="_blank">Wirtschaftsuniversität Wien: IT-SERVICES</a>.  
+                        <br>
+                        <br>
+                        Check this page regularly and you will not miss any changes in WU learning process: <a href="https://www.wu.ac.at/en/students/distance-learning-and-online-exams/coronavirus-updates-for-students" target="_blank">Wirtschaftsuniversität Wien: Coronavirus: Updates for Students - Learn Safely - Students</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="div2">
+        <h2 style="margin-top:30px; color:rgb(0,136,204); font-size: 40px;">HELPFUL LINKS</h2>
+        <h2> <a href="https://www.wu.ac.at/universitaet/news-und-events/news/details-news/detail/wichtige-informationen-zum-coronavirus" target="_blank">WU Wien</a> </h2>
+        <h2> <a href="https://www.sozialministerium.at/Informationen-zum-Coronavirus/Coronavirus---Aktuelle-Informationen-in-Fremdsprachen-.html" target="_blank">Information from Gesundheitsministerium</a></h2>
+        <h2> <a href="https://www.bmbwf.gv.at/Themen/HS-Uni/Aktuelles/corona.html" target="_blank">Bundesministerium für Bildung, Wissenschaft und Forschung</a> </a> </h2>
+        <h2> <a href="https://www.oeh.ac.at/en/corona-emergency-fund" target=_blank>Corona emergency fund</a></h2>
+        <h2> <a href="https://www.sozialministerium.at/Informationen-zum-Coronavirus/Coronavirus-–-Psychologische-Hilfe.html" target="_blank">Psychological support</a></h2>
+        <h2> <a href="https://www.arbeiterkammer.at/beratung/arbeitundrecht/corona/index.html" target= "_blank">Labour law & Corona</a></h2>
+        <h2> <a href= "https://www.sozialministerium.at/Informationen-zum-Coronavirus/Coronavirus---Haeufig-gestellte-Fragen/FAQ--Reisen-und-Tourismus.html" target=_blank>Travel & Corona</a></h2>
+        <h2> <a href="https://www.stipendium.at/faq/faq-stipendium-und-coronakrise" target= "-blank">Stipendium</a> </h2>
+    </div>
+
+</div>
+
+{% endblock %}

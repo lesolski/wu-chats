@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="presentation">
+
+	<img src="static/favicon.ico" class="logo-image">
+	<h2>WU STUDENT HELPER</h2>
+
+	<video width="640" height="320" controls style="margin-top:30px;">
+		<source src="static/video.mp4" type="video/mp4">
+		<source src="static/movie.ogg" type="video/ogg">
+	  Your browser does not support the video tag.
+	  </video>
+
+	<div class="statement">
+	    <p style="font-size: 50px; margin-bottom: 20px;"> &#128075</p>
+		<p> Hi! Welcome to WU Student Helper, we are here to help you get connected with your fellow classmates during Covid-19 Pandemic.
+		</p>
+	</div>
+
+
+	<div class="cta">
+		<a href="{{ url_for('users.register')}}">
+			<button class="submit-button" style="width:80%;">REGISTER</button>
+		</a>
+
+		<a href="{{ url_for('users.login')}}">
+			<button class="submit-button" style="width:80%;">LOGIN</button>
+		</a>
+	</div>
+
+</div>
+{% endblock %}
+
+

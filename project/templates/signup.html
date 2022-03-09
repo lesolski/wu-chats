@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block errors %}
+{% if form.email.errors %}
+    {% for error in form.email.errors[-1:] %}
+    <div class="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.password.errors %}
+    {% for error in form.password.errors[-1:] %}
+        <div class="alert">
+            Password must be between 4 and 20 characters long.
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.password2.errors %}
+    {% for error in form.password2.errors[-1:] %}
+        <div class="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<div class="timeline">
+    <div class="formular">
+        <form action="" method="POST">
+        {{ form.csrf_token }}
+            <h3>REGISTER</h3>
+            <p>{{ form.email }}</p>
+            <p>{{ form.password }}</p>
+            <p>{{ form.password2 }}</p>
+            <div class="text-center">{{ form.recaptcha }}</div>
+            <button class="submit-button" type="submit">REGISTER</button>
+            <p class="asks">Already have an account?<a href="{{url_for('users.login')}}">  Log in here</a></p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

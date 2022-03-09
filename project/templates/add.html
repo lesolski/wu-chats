@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block errors %}
+{% if form.semester.errors %}
+    {% for error in form.semester.errors[-1:] %}
+    <div class="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.course_id.errors %}
+    {% for error in form.course_id.errors[-1:] %}
+        <div class="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.group_name.errors %}
+    {% for error in form.group_name.errors[-1:] %}
+    <div class="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.platform.errors %}
+    {% for error in form.platform.errors[-1:] %}
+    <div class="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.grouplink.errors %}
+    {% for error in form.grouplink.errors[-1:] %}
+    <div class="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if form.show_admin.errors %}
+    {% for error in form.show_admin.errors[-1:] %}
+    <div class="alert">
+        Please choose visibility of ownership.
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="timeline">
+    <div class="formular">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <h3>ADD GROUP</h3>
+
+            <p>{{ form.semester }}</p>
+            <p>{{ form.course_id }}</p>
+            <p>{{ form.group_name }}</p>
+            <p>{{ form.professors }}</p>
+            <p>{{ form.platform }}</p>
+            <p>{{ form.grouplink }}</p>
+            <br>
+            {% for subfield in form.show_admin %}
+            <p> {{ subfield.label }} {{ subfield }}</p>
+            {% endfor %}
+
+            <button class="submit-button" type="submit" style="margin: 30px 0 30px 0;">ADD GROUP</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block coffee %}
+<!-- <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="wu.community" data-description="Support me on Buy me a coffee!" data-message="" data-color="#0088CC" data-position="Right" data-x_margin="18" data-y_margin="60" data-coffee-color="#FFFF00"></script>-->
+{% endblock %}

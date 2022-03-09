@@ -1,0 +1,5 @@
+# Everyone
+User-agent: *
+Allow: /
+
+Sitemap: https://codeasap.pythonanywhere.com/sitemap.xml

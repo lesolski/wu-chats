@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<style type="text/css">
+
+.wrapper {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+.grid-container {
+		display: grid;
+		margin-top: 50px;
+		grid-column-gap: 20px;
+		grid-row-gap: 20px;
+		grid-template-columns: auto auto;
+		padding: 10px;
+}
+
+.grid-item {
+		background:linear-gradient(rgb(0,136,204, 0.8), rgba(255,255,255,0.3));
+		border-radius: 15px;
+		box-shadow: 4px 4px 6px 0 rgba(0,0,0,0.1),
+		        -4px -4px 6px white;
+		overflow: hidden;
+		font-size: 30px;
+		text-align: center;
+}
+
+.grid-item:hover {
+    transform:scale(1.1,1.1);
+
+	box-shadow: 4px 4px 10px 0 white,
+		        -4px -4px 10px white;
+}
+
+.grid-item p {
+	font-size: 20px;
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 50px;	
+}
+
+
+.article {
+	margin-top: 60px;
+	text-align: left;
+	margin-left: 20px;
+	margin-bottom: 0px;
+}
+
+.article p {
+	margin: 5px 0 0 0;
+}
+
+h2 {
+	margin-top: 50px;
+	color: rgb(0,136,204);
+	font-size: 50px;
+}
+
+</style>
+
+<div class="wrapper">
+	<h2>NEWS ARTICLES</h2>
+	<div class="grid-container">
+
+		{% if news %}
+			{% for article in news %}
+			<a href="{{ article.link }}" target="_blank" style="all: none;">
+				<div class="grid-item">
+					<div class="article">
+						<h3 style="font-size: 30px; color:white;">{{ article.title }}</h3>
+						<p style="color:black">{{ article.published_at }}</p>
+						<p style="color:black; margin-bottom: 10px;">{{ article.descr[:70] }}...</p>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+		{% endif %}
+
+</div>
+{% endblock %}
